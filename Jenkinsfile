@@ -5,7 +5,8 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/vasuabhi21/complete_devops_pipeline'
+                git branch: 'main',
+                url: 'https://github.com/vasuabhi21/complete_devops_pipeline'
             }
         }
 
@@ -29,7 +30,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                bat 'docker run -d --name devops-container devops-pipeline'
+                bat 'docker run --name devops-container devops-pipeline'
             }
         }
     }
